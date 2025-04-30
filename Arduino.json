@@ -1,0 +1,12 @@
+const int photodiodePin = A0;
+
+void setup() {
+  Serial.begin(115200);  // Faster baud rate for high-speed data
+  analogReference(DEFAULT);
+}
+
+void loop() {
+  int sensorValue = analogRead(photodiodePin);
+  Serial.println(sensorValue);  // Send raw ADC value
+  delayMicroseconds(100);  // ~10 kHz sampling rate (100 µs period)
+}
